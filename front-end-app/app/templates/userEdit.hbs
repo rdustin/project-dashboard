@@ -1,0 +1,57 @@
+    <div class="row">
+    <br>
+    <div class="col-sm-12">
+        <div class="row">
+            <form id="edit-user-form">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" value="{{first_name}}">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" value="{{last_name}}">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email/Username:</label>
+                        <input type="text" name="email" value="{{email}}">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                    <label for="confirm_email">Confirm Email/Username:</label>
+                    <input type="text" value="{{email}}" name="confirm_email">
+                    <span class="help-block"></span>
+                </div>
+                </div>
+                <div class="col-sm-6">
+                {{#if administrator}}
+                    <h3>{{first_name}}'s Projects</h3>
+                    <ul class="list-group">
+                    {{#each sharedProject}}
+                        <li class="list-group-item project_{{id}}"><a href="/#projects/{{id}}">{{name}}</a></li>
+                    {{/each}}
+                    </ul>
+                    {{else}}
+                    <div class="form-group">
+                    <label>Revoke or add project access for {{first_name}}</label>
+                    {{#each allProjects}}
+                        <div class="checkbox">
+                            <label for="project_{{id}}">
+                            <input type="checkbox" id="project_{{id}}" name="projectIds" value="{{id}}" {{#if isUsers}}checked{{/if}}>{{name}}</label>
+                        </div>
+                        <span class="help-box"></span>
+                    {{/each}}
+                    </div>
+                    {{/if}}
+                    <input type="hidden" name="id" value="{{id}}">
+                    <button class="btn btn-primary" id="update-user" type="submit">Update User</button> <a href="#users/{{id}}" class="cancel-link">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>

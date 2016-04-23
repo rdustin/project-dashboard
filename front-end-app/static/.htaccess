@@ -1,0 +1,4 @@
+# Force https for security reasons
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI}

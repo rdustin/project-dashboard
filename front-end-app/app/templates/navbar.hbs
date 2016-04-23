@@ -1,0 +1,32 @@
+    <div class="navbar-header">
+        <a href="/" class="navbar-brand">[Company Logo Here]</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            {{#if session}}
+            <li {{#if administrator}} class="dropdown"{{/if}}><a href="/" {{#if administrator}} class="dropdown-toggle" data-toggle="dropdown"{{/if}}>Projects{{#if administrator}} <span class="caret"></span>{{/if}}</a>
+            {{#if administrator}}
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="/">Active Projects</a></li>
+                    <li><a href="#new/project">New Project</a></li>
+                    <li><a href="#inactive/projects">Inactive Projects</a></li>
+                </ul>
+            {{/if}}
+            </li>
+            {{#if administrator}}
+            <li><a href="#users">Users</a></li>
+            {{/if}}
+            <li><a href="#profile/{{user_id}}">Profile</a></li>
+            {{/if}}
+        </ul>
+        {{#if session}}
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged in as: {{ first_name }} <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#logout" class="logout session-management">Logout</a></li>
+              </ul>
+            </li>
+        </ul>
+        {{/if}}
+    </div>

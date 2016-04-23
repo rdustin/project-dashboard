@@ -1,0 +1,24 @@
+    <div class="row editable">
+    <br>
+    <div class="col-sm-10">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>{{first_name}} {{last_name}}</h2>
+                <p><strong>Email/Username: </strong>{{email}}</p>
+                <p><strong>Role: </strong>{{role}}</p>
+            </div>
+            <div class="col-sm-6">
+                <h3>{{first_name}}'s Projects</h3>
+                <ul class="list-group">
+                {{#each sharedProject}}
+                    <li class="list-group-item project_{{id}}"><a href="/#projects/{{id}}">{{name}}</a></li>
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <a href="#users/{{id}}/edit" class="btn btn-default edit-user-link edit-link">Edit User</a>
+    </div>
+</div>

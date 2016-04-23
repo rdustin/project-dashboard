@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-10">
+        <h2>{{name}}</h2>
+        <p>Status: ({{status}})</p>
+    </div>
+    <div class="col-sm-2">
+    {{#if administrator}}
+    <br>
+        <a class="btn btn-default edit-project-link edit-link" href="#projects/{{id}}/edit">Edit Project</a>
+    {{/if}}
+    </div>
+</div>
+ <br>
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Discussions <span class="badge">{{ownDiscussion.length}}</span></h4>
+    </div>
+    <div class="col-sm-8">
+        <a class="btn btn-default new-discussion" href="/#projects/{{id}}/new-discussion">Start a new discussion</a>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table">
+            <tbody>
+            {{#each ownDiscussion}}
+                <tr>
+                    <td>{{user_name}}</td>
+                    <td><a href="/#projects/{{project_id}}/discussions/{{id}}">{{title}}</a></td>
+                    <td>{{formatDate modified_date "dateTime"}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
