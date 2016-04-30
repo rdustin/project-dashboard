@@ -1,0 +1,9 @@
+---
+  - name: ensure git is installed
+    apt: pkg=git state=latest
+
+  - name: ensure vim is installed
+    apt: pkg=vim state=latest
+
+  - name: ensure lsyncd is installed
+    apt: pkg=lsyncd state=latest
