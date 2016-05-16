@@ -1,0 +1,8 @@
+{
+	"require": {
+		"slim/slim": "2.*",
+		"league/flysystem": "0.2.*",
+        "codeguy/upload": "*",
+        "erusev/parsedown": "1.*"
+	}
+}

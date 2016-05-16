@@ -39,3 +39,4 @@ front-end-app/static/bundle.js
 vendor
 
 .vagrant
+phpmyadmin
