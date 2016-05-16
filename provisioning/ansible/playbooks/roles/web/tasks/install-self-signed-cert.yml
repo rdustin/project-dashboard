@@ -1,0 +1,10 @@
+---
+ - name: create directory for SSL cert
+   file:
+     path: /etc/apache2/ssl
+     state: directory
+
+ - name: create self-signed SSL cert
+   command: openssl req -x509 -nodes -days 365 -subj "/C=US/ST=Missouri/L=Warrensburg/O=IT/CN=192.168.30.120" -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt
+   notify:
+   - restart apache

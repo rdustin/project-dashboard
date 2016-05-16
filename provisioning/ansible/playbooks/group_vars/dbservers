@@ -1,17 +1,12 @@
 
 mysql_vars:
-    mysql_root_password: root
+    mysql_root_password: password
     mysqlservice: mysql
     mysql_port: 3306
     databases:
-        - sampledb
-        - sampledb2
+        - project_dashboard
     users:
-        sampleuser:
-            priv: sampledb.*:ALL
-            password: abc123
-            state: present
-        sampleuser2:
-            priv: sampledb2.*:ALL/sampledb.*:SELECT
+        pduser:
+            priv: project_dashboard.*:ALL
             password: abc123
             state: present

@@ -9,13 +9,13 @@
 - name: enable vhosts
   command: a2ensite "{{ item.server_name }}".conf
   with_items: "{{enabled_vhosts}}"
-  when: item > 0
+  when: item != ''
   notify:
   - restart apache
 
 - name: disable vhosts
   command: a2dissite "{{ item.server_name }}".conf
   with_items: "{{disabled_vhosts}}"
-  when: item > 0
+  when: item != ''
   notify:
   - restart apache

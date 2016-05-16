@@ -1,0 +1,38 @@
+---
+ - name: change permissions of .htaccess file
+   file:
+     path: /var/www/html/project-dashboard/api/.htaccess
+     mode: u=rw,g=rw
+
+ - name: download composer
+   shell: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+ - name: verify composer
+   shell: php -r "if (hash_file('SHA384', 'composer-setup.php') === '92102166af5abdb03f49ce52a40591073a7b859a86e8ff13338cf7db58a19f7844fbc0bb79b2773bf30791e935dbd938') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
+ - name: install composer
+   shell: php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+ - name: remove composer setup file
+   shell: php -r "unlink('composer-setup.php');"
+
+ - name: run composer install
+   composer: command=install working_dir=/var/www/html/project-dashboard/api/
+
+ - name: copy redbean into vendor folder
+   shell: cp -r /vagrant/www/Redbean /var/www/html/project-dashboard/api/vendor/Redbean
+
+ - name: change permissions of Redbean folder
+   file:
+     path: /var/www/html/project-dashboard/api/vendor/Redbean/rb.php
+     mode: u=rw,g=r,o=r
+
+ - name: copy api-config folder
+   shell: cp -r /vagrant/api-config /var/www/
+
+ - name: create upload folder
+   file:
+     path: /var/www/pd-attachments
+     mode: u=rwx,g=rwx
+     group: www-data
+     state: directory

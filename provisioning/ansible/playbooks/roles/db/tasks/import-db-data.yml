@@ -1,0 +1,2 @@
+- name: Import the database
+  mysql_db: name=project_dashboard state=import target=/vagrant/data/initial-db-data.sql

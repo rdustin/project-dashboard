@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                         cwd: 'static',
                         expand: true,
                         src: ['**/**'],
-                        dest: '../api/'
+                        dest: '../www/sites/project-dashboard/'
                     }
                 ]
             }
@@ -89,5 +89,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('server', ['compile', 'runNode', 'watch']);
 
-    grunt.registerTask('default', ['compile']);
+    grunt.registerTask('default', ['compile', 'build']);
 };

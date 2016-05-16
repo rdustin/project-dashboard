@@ -3,3 +3,5 @@
  - include: manage-apache-modules.yml
  - include: manage-vhosts.yml
  - include: install-php.yml
+ - include: install-self-signed-cert.yml
+ - include: set-up-project.yml

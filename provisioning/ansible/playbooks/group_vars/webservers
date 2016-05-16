@@ -1,10 +1,10 @@
 enabled_vhosts:
- - { server_name: 'sample-site.dev', document_root: '/var/www/html/sample-site' }
- - { server_name: 'sample-site2.dev', document_root: '/var/www/html/sample-site2' }
+ - { server_name: 'project-dashboard.dev', document_root: '/var/www/html/project-dashboard' }
 
 disabled_vhosts:
 
 enabled_modules:
  - rewrite
+ - ssl
 
 disabled_modules:

@@ -2,3 +2,4 @@
 - include: install-mysql.yml
 - include: create-databases-and-users.yml
 - include: install-phpmyadmin.yml
+- include: import-db-data.yml

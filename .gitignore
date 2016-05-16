@@ -32,8 +32,10 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-# the code used by the web server
-api
-
 # the bundled js file
 front-end-app/static/bundle.js
+
+# exclude vendor file
+vendor
+
+.vagrant
